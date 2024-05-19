@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Home</title>
+        
+        <style>
+            body {
+                background-color: #496989;
+                margin: 0;
+                padding: 0;
+                font-family: 'Courier New';
+            }
+            
+            .navbar {
+                background-image: url(sky.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                justify-content: space-between;
+                top: 0;
+                width: 100%;
+                height: 120px;
+                position: fixed;
+                z-index: 1000;
+                border-bottom: solid 10px #496989;
+            }
+
+            .navbar h1{
+                color: #496989 ;
+                display: flex;
+                margin-top: 50px;
+                margin-right: 550px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                margin-top: 40px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+            }
+
+            .navbar a {
+                text-decoration: none;
+                display: block;
+                padding: 14px 16px;
+                color: #496989; 
+                font-weight: bold;
+                font-size: large;
+            }
+            
+            .navbar a:hover {
+                background-color: #496989;
+                color: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+            }
+
+            .navbar ul ul {
+                display: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+
+            .navbar li {
+                position: relative;
+            }
+
+            .navbar li:hover > ul {
+                display: block;
+            }
+
+            .navbar ul ul li {
+                display: block;
+                width: 100%;
+                align-items: center;
+                background-color: lightblue;
+            }
+
+            .navbar ul ul a {
+                color: #496989;;
+                text-decoration: none;
+                align-items: center;
+            }
+
+            .navbar ul ul a:hover {
+                align-items: center;
+            }
+
+            .navbar img {
+               
+
+                width: 100px;
+                height: 90px;
+                margin-left: 15px;
+                margin-top: 15px;
+            }
+
+             .ad {
+                background-color: white;
+                border: white;
+                border-style: solid;
+                width: 98%;
+                height: 600px;
+                margin-top: 170px;
+                margin-left: 10px;
+            }
+
+
+            .ad img{
+                height: 600px;
+                width: 100%;
+                display: inline-block;
+            }
+           
+            .ad button#right {
+                position: absolute;
+                top: 50%;
+                left: 95%;
+                border-radius: 20px;
+                border: #496989;
+                border-style: solid;
+                width: 40px;
+                height: 40px;
+                opacity: 50%;
+            }
+
+            .ad button#right:hover {
+                position: absolute;
+                top: 50%;
+                left: 95%;
+                border-radius: 20px;
+                border: #496989;
+                border-style: solid;
+                width: 40px;
+                height: 40px;
+                opacity: 100%;
+                cursor: pointer;
+            }
+
+            .ad button#left {
+                position: absolute;
+                top: 50%;
+                right: 95%;
+                border-radius: 20px;
+                border: #496989;
+                border-style: solid;
+                width: 40px;
+                height: 40px;
+                opacity: 50%;
+            }
+
+            .ad button#left:hover {
+                position: absolute;
+                top: 50%;
+                right: 95%;
+                border-radius: 20px;
+                border: #496989;
+                border-style: solid;
+                width: 40px;
+                height: 40px;
+                opacity: 100%;
+                cursor: pointer;
+            }
+
+            .main {
+                height: 100px;
+                margin-left: 20px; 
+            }
+
+            .main h1{
+                color: white;
+                display: flex;
+            }
+
+            .book {
+                background-color: #BED7DC;
+                width: 25%;
+                height: 450px;
+                padding: 20px;
+                border-radius: 10px;
+                margin: 10px;
+                margin-left: 30px;
+                align-items: center;
+                text-align: center;
+                display: inline-block;
+                color: #496989;
+                cursor: pointer;
+                text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .book img {
+                width: 70%;
+                height: 80%;
+            }
+
+            @media (max-width: 750px){
+                
+                .main {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .book {
+                    width: 70%;
+                    margin-bottom: 20px;
+                }
+
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 1000; 
+                color: white; 
+                padding: 20px;  
+                box-sizing: border-box; 
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .overlay img {
+                width: 350px;
+                height: 500px;
+            }
+
+            .overlay button {
+                border: none;
+                background-color: #496989;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+            }
+
+            .overlay p {
+                color: white;
+            }
+
+            .overlay button:hover {
+                background-color: #385c70;
+            }
+
+
+             .checkout {
+                display: none;
+                
+            } 
+            
+            .checkout h1 {
+                color: #385c70;
+                font-size: 50px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                margin-top: 120px;
+            }
+
+            .checkout p {
+                color: #385c70;
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                position: absolute; 
+                right: 20px; 
+                margin-left: 20px;
+            }
+
+            .checkout ul {
+                padding-left: 0;
+            }
+
+            .closeCheckout{
+                width: 30px;
+                position: absolute;
+                top: 140px;
+                right: 10px;
+                cursor: pointer;
+            }
+
+            .bookOUT {
+                display: flex;
+                padding: 20px;
+            }
+
+            .bookOUT img {
+                width: 50px;
+                height: auto;
+                margin-right: 20px;
+                border: solid  #385c70;
+            }
+
+
+            .bookOUT h3 {
+                display: inline-block;
+                color: #496989;
+                margin: 0;
+            }
+
+            .bookOUT ul {
+                margin-left: 0;
+            }
+
+            .bookOUT li {
+                list-style-type: none;
+            }
+
+            .bookOUT p {
+                color: #385c70;
+            }
+
+            .checkout #price {
+                margin-bottom: 10px;
+            }
+
+            .checkout button {
+                border: none;
+                background-color: #496989;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+                margin-bottom: 25px;
+            }
+           
+
+            .checkout button:hover {
+                background-color: #385c70;
+            }
+
+            #paymentButton a {
+                text-decoration: none;
+                color: white;
+            }
+            
+            .newsletter{
+                color: white;
+                display: block;
+                justify-content: block;
+                align-items: center;
+                text-align: center;
+            }
+
+            .newsletter h1 {
+                display: block;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+            }
+
+            .newsletter label {
+                margin: 15px;
+            }
+
+            .newsletter #txt{
+                margin: 10px;
+                height: 30px;
+                width: 400px;
+            }
+
+            .newsletter button {
+                position: relative;
+                padding: 10px;
+                border: 0;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+                width: 100px;
+                color: #496989;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .newsletter button:active{
+                top: 4px;
+                left: 3px;
+                box-shadow: none;
+            }
+           
+
+        </style>
+         
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar">
+            <img src="logo.png"><h1>Book Store</h1>
+            <ul>
+                <li><a href="#">Featured Books</a>
+                    <ul>
+                        <li><a href="#bestID">Best Sellers</a></li>
+                        <li><a href="#fictionID">Fiction</a></li>
+                        <li><a href="#historyID">History</a></li>
+                        <li><a href="#selfID">Self-Help</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#" onclick="viewCart()">View My Cart</a></li>
+            </ul>
+        </div>
+    </nav> 
+
+     <div class="ad"> 
+        <img id="adpic" src="ad1.png">
+            <button id="right" onclick="changeimg()">></button>
+            <button id="left" onclick="changeimg()"><</button>
+    </div>
+
+    <div class="main">
+        <br>
+        <hr>
+        <h1>Best Sellers</h1>
+        <div class="best" id="bestID">
+            
+            <div class="overlay" id="overlay"></div>
+            
+            <div class="book" onclick="showOverlay('mocking.jpg', 'How to Kill a Mockingbird', 'To Kill a Mockingbird is a novel by Harper Lee. It is set in the fictional town of Maycomb, Alabama, and follows the story of a young girl named Scout Finch and her father, Atticus, who is a lawyer defending a black man falsely accused of raping a white woman.', '20')">
+                <img src="mocking.jpg">
+                <h3>How to Kill<br>a Mockingbird</h3>
+                <h4>20$</h4>
+            </div>
+            
+            <div class="book" onclick="showOverlay('seus.jpg', 'Happy Birthday To You!', 'Happy Birthday to You! is a children\'s book by Dr. Seuss. It celebrates the joy and excitement of birthdays, featuring whimsical illustrations and playful rhymes.', '20')">
+                <img src="seus.jpg">
+                <h3>Happy Birthday<br>To You!</h3>
+                <h4>20$</h4>
+            </div>
+            
+            <div class="book" onclick="showOverlay('mist.jpg', 'Court of Frost and Starlight', 'A Court of Frost and Starlight is a fantasy novel by Sarah J. Maas. It is set in the same world as her A Court of Thorns and Roses series and follows the adventures of Feyre Archeron and her allies as they navigate the aftermath of a devastating war.', '20')">
+                <img src="mist.jpg">
+                <h3>Court of Frost<br>and Starlight</h3>
+                <h4>20$</h4>
+            </div>
+            
+            <div class="book" onclick="showOverlay('court.jpg', 'Court of Mist and Fury','A Court of Mist and Fury is the second book in the A Court of Thorns and Roses series by Sarah J. Maas. It continues the story of Feyre Archeron as she navigates the dangerous and enchanting world of the fae.', '20')">
+                <img src="court.jpg">
+                <h3>Court of Mist<br>and Fury</h3>
+                <h4>20$</h4>
+            </div>
+            
+            <div class="book" onclick="showOverlay('body.jpg', 'The Body Keeps Score', 'The Body Keeps Score is a non-fiction book by Bessel van der Kolk. It explores the impact of trauma on the body and mind, offering insights into how trauma affects individuals and strategies for healing and recovery.', '20')">
+                <img src="body.jpg">
+                <h3>The Body<br>Keeps Score</h3>
+                <h4>20$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('narnia.jpg', 'The Lion, the Witch, and the Wardrobe', 'Narnia itself was once a peaceful realm filled with talking animals, fauns, Giants and dwarves that is now under a cursed eternal winter by the villainous White Witch. With aid from the majestic lion Aslan, the four lead Narnia into an all out war as they fight to outwit the Witch and restore peace to the land.', '20')">
+                <img src="narnia.jpg">
+                <h3>The Lion, the WitchS<br>and the Wardrobe</h3>
+                <h4>20$</h4>
+            </div>
+          
+            <div class="book" onclick="showOverlay('arab.jpg', 'The Arabian Nights', 'A famous collection of Persian, Indian, and Arabian folktales. Supposedly, the legendary Scheherazade told these stories to her husband the sultan, a different tale every night for 1,001 days; therefore, the collection is sometimes called The Thousand and One Nights.', '20')">
+                <img src="arab.jpg">
+                <h3>The Arabian Nights<br><br></h3>
+                <h4>20$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('wurth.jpg', 'Wuthering Heights', 'The narrative centres on the all-encompassing, passionate, but ultimately doomed love between Catherine Earnshaw and Heathcliff, and how this unresolved passion eventually destroys them and the people around them.', '20')">
+                <img src="wurth.jpg">
+                <h3>Wuthering Heights<br><br></h3>
+                <h4>20$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('tale.jpg', 'A Tale of Two Cities', 'The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris, and his release to live in London with his daughter Lucie whom he had never met. The story is set against the conditions that led up to the French Revolution and the Reign of Terror.', '20')">
+                <img src="tale.jpg">
+                <h3>A Tale of<br>Two Cities</h3>
+                <h4>20$</h4>
+            </div>
+
+        </div>
+
+        <div class="fiction" id="fictionID">
+
+            <hr>
+            <h1>Fiction</h1>
+        
+            <div class="book" onclick="showOverlay('circe.jpg', 'Circe', 'Circe is a novel by Madeline Miller that retells the story of the witch Circe from Greek mythology. It follows Circe\'s journey as she discovers her own powers and navigates the world of gods and mortals.', '15')">
+                <img src="circe.jpg">
+                <h3>Circe <br><br></h3>
+                <h4>15$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('catcher.jpg', 'Catcher In the Rye', 'The Catcher in the Rye is a novel by J.D. Salinger. It follows the story of Holden Caulfield, a teenage boy who struggles with alienation and identity as he navigates the streets of New York City.', '15')">
+                <img src="catcher.jpg">
+                <h3>Catcher In <br>The Rye</h3>
+                <h4>15$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('faust.jpg', 'Dr. Faustus', 'Dr. Faustus is a play by Christopher Marlowe. It tells the story of a scholar who makes a pact with the devil in exchange for knowledge and power, leading to his tragic downfall.', '15')">
+                <img src="faust.jpg">
+                <h3>Dr. Faustus<br><br></h3>
+                <h4>15$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('gatsby.jpg', 'The Great Gatsby', 'The Great Gatsby is a novel by F. Scott Fitzgerald. Set in the Roaring Twenties, it follows the life of Jay Gatsby and his pursuit of the American Dream, exploring themes of love, wealth, and the corruption of the American Dream.'), '15'">
+                <img src="gatsby.jpg">
+                <h3>The Great<br>Gatsby</h3>
+                <h4>15$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('oz.jpg', 'The Wizard of Oz','The Wizard of Oz is a children\'s novel by L. Frank Baum. It follows the adventures of a young girl named Dorothy and her dog Toto as they journey through the magical land of Oz, meeting colorful characters along the way.', '15')">
+                <img src="oz.jpg">
+                <h3>The Wizard<br>of Oz</h3>
+                <h4>15$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('pride.jpg', 'Pride and Prejudice', 'Pride and Prejudice is a novel by Jane Austen. It follows the romantic entanglements of the Bennet sisters, particularly Elizabeth Bennet and Mr. Darcy, as they navigate issues of class, marriage, and love in early 19th-century England.', '15')">
+                <img src="pride.jpg">
+                <h3>Pride and<br>Prejudice</h3>
+                <h4>15$</h4>
+            </div>
+        
+        </div>
+
+        <div class="history" id="historyID">
+
+            <hr>
+            <h1>History</h1>
+
+            <div class="book" onclick="showOverlay('gun.jpg', 'The Guns of August', 'The Guns of August is a 1962 book centered on the first month of World War I written by Barbara W. Tuchman. After introductory chapters, Tuchman describes in great detail the opening events of the conflict. The book\'s focus then becomes a military history of the contestants, chiefly the great powers', '10')">
+                <img src="gun.jpg">
+                <h3>The Guns<br>of August</h3>
+                <h4>10$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('diary.jpg', 'The Diary of a Young Girl', 'The Diary of a Young Girl, commonly referred to as The Diary of Anne Frank, is a book of the writings from the Dutch-language diary kept by Anne Frank while she was in hiding for two years with her family during the Nazi occupation of the Netherlands.', '10')">
+                <img src="diary.jpg">
+                <h3>The Diary of<br>A Young Girl</h3>
+                <h4>10$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('return.jpg', 'The Return of Great Powers', 'Instant New York Times BestsellerThe essential new book by CNN anchor and chief national security analyst Jim Sciutto, identifying a new, more uncertain global order with reporting on the frontlines of power from existing wars to looming ones across the globe.', '10')">
+                <img src="return.jpg">
+                <h3>The Return of<br>Great Powers</h3>
+                <h4>10$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('army.jpg', 'An Army At Dawn', 'An Army at Dawn: The War in North Africa, 1942–1943 is a Pulitzer Prize–winning book written in 2002 by long-time Washington Post correspondent Rick Atkinson. The book is a history of the North African Campaign, particularly focused on the role of the United States military.', '10')">
+                <img src="army.jpg">
+                <h3>An Army<br>At Dawn</h3>
+                <h4>10$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('1493.jpg', '1493', 'Uncovering the New World Columbus Created is a nonfiction book by Charles C. Mann first published in 2011. It covers the global effects of the Columbian Exchange, following Columbus\'s first landing in the Americas, that led to our current globalized world civilization.', '10')">
+                <img src="1493.jpg">
+                <h3>1493<br><br></h3>
+                <h4>10$</h4>
+            </div>
+
+            <div class="book" onclick="showOverlay('pompeii.jpg', 'Pompeii', 'Pompeii is a novel by Robert Harris, published by Random House in 2003. It blends historical fiction with the real-life eruption of Mount Vesuvius on 24 August 79 AD, which overwhelmed the town of Pompeii and its vicinity.', '10')">
+                <img src="pompeii.jpg">
+                <h3>Pompeii<br><br></h3>
+                <h4>10$</h4>
+            </div>
+
+        </div>
+        
+
+        <div class="self" id="selfID">
+
+            <hr>
+            <h1>Self-Help</h1>
+        
+            <div class="book" onclick="showOverlay('how.jpeg', 'How to Win Friends and Influence People', 'How to Win Friends and Influence People is a 1936 self-help book written by Dale Carnegie. Over 30 million copies have been sold worldwide, making it one of the best-selling books of all time.', '13')">
+                <img src="how.jpeg">
+                <h3>How to Win Friends and Influence People</h3>
+                <h4>13$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('effective.png', 'The Seven Habits of Highly Effective People', 'The Seven Habits of Highly Effective People is a self-help book written by Stephen Covey. It presents seven habits that Covey argues are essential for personal and professional success.', '13')">
+                <img src="effective.png">
+                <h3>The Seven Habits of Highly Effective People</h3>
+                <h4>13$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('anxious.jpeg', 'The Anxious Generation', 'The Anxious Generation is a book by Dr. Frances Jensen that explores the impact of stress and anxiety on young people\'s mental health. Drawing on scientific research and personal anecdotes, Jensen offers strategies for coping with anxiety in today\'s fast-paced world.', '13')">
+                <img src="anxious.jpeg">
+                <h3>The Anxious<br>Generation</h3>
+                <h4>13$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('ego.jpeg', 'Ego is the Enemy', 'Ego Is the Enemy is the fourth book by author Ryan Holiday, published on June 14, 2016. It explores the detrimental effects of ego and how it can hinder personal and professional growth. Holiday draws on historical examples and modern anecdotes to illustrate the dangers of unchecked ego.', '13')">
+                <img src="ego.jpeg">
+                <h3>Ego is<br>the Enemy</h3>
+                <h4>13$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('blink.jpeg', 'Blink: The Power of Thinking Without Thinking', 'Blink: The Power of Thinking Without Thinking is a book by Malcolm Gladwell that explores the concept of rapid cognition—the ability to make quick decisions based on instinct and intuition. Gladwell examines the science behind snap judgments and their implications for decision-making in various aspects of life.', '13')">
+                <img src="blink.jpeg">
+                <h3>Blink: The Power of Thinking Without Thinking</h3>
+                <h4>13$</h4>
+            </div>
+        
+            <div class="book" onclick="showOverlay('worry.jpeg', 'The Worry Cure', 'The Worry Cure is a self-help book by Robert L. Leahy that offers a comprehensive approach to overcoming chronic worry. Leahy draws on cognitive-behavioral techniques to help readers identify, challenge, and manage their worries effectively, providing practical strategies for reducing anxiety and improving overall well-being.', '13')">
+                <img src="worry.jpeg">
+                <h3>The Worry<br>Cure</h3>
+                <h4>13$</h4>
+            </div>
+        
+        </div>
+
+        <hr>
+       
+        <div class="checkout">
+            <h1>My Cart</h1>
+            <img src="x.png" class="closeCheckout" onclick="closeCart()">
+            <ul></ul>
+            <p id="price">Total Price: 0$</p>
+            <br><br><br>
+            <button id="paymentButton" onclick="openButton()">Proceed to Payment</button>
+            <button id="empty" onclick="emptyCart()">Empty Cart</button>
+        </div>
+
+         <div class="newsletter">
+            <h1>Subscribe to Our Newsletter!</h1>
+            <label>Enter your email to stay connected!</label><br>
+            <input type="text" id="txt"><br>
+            <input type="checkbox" id="check"> <label>I accept terms and conditions.</label> <br>
+            <button type="submit" onclick="news()" id="sbmt">Subscribe</button>
+        </div>
+
+    </div> 
+
+    <script>
+
+        function news() {
+            var email = document.getElementById('txt').value;
+            var check = document.getElementById('check');
+
+            if (!isValidEmail(email)){
+                        alert("Please enter a valid email address.");
+            }
+            else{
+                if(!check.checked){
+                    alert('Terms and Conditions must be checked.')
+                }
+                else {
+                    alert('Thank you for subscribing!')
+                }
+            }
+        }
+
+        function isValidEmail(email) {
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+                return emailRegex.test(email);
+        }
+
+        function openButton() {
+            var checkoutList = document.querySelector('.checkout ul');
+
+            if (checkoutList.innerHTML===""){
+                alert('Your Cart is Empty.')
+            }
+            else{
+                window.location.href = 'pay.html';
+            }
+        }
+
+
+        function emptyCart(){
+            var checkoutList = document.querySelector('.checkout ul');
+            checkoutList.innerHTML = "";
+
+            var totalPriceElement = document.getElementById('price');
+            totalPriceElement.innerHTML = "Total Price: 0$"
+
+            ahref.setAttribute('href', '#');
+        }
+
+        function showOverlay(imgSRC, bookTitle, bookDescription , bookPrice) {
+            var overlay = document.getElementById("overlay");
+
+            overlay.innerHTML = '<img src="' + imgSRC + '">'
+            + '<br> <p>' +  bookDescription  + '<br>' + bookPrice + '$'  + '</p>' 
+            + '<br> <button onclick="add(\'' + imgSRC + '\', \'' + bookTitle + '\', \'' + bookPrice +'\')">Add to Cart</button>' 
+            + '<button onclick="hideOverlay()">Close</button>';
+
+            overlay.style.display = "block";
+        }
+
+        function hideOverlay() {
+            var overlay = document.getElementById("overlay");
+            overlay.style.display = "none";
+        }
+
+        function add(imgSRC, bookTitle, bookPrice){
+            var but = document.getElementById('paymentButton')
+            but.disabled=false;
+
+            var checkoutList = document.querySelector('.checkout ul');
+
+            var newItem = document.createElement('li');
+            newItem.className = 'bookOUT';
+
+            var newImg = document.createElement('img');
+            newImg.src = imgSRC;
+
+            var newTitle = document.createElement('h3');
+            newTitle.textContent = bookTitle;
+
+            var newPrice = document.createElement('p');
+            newPrice.textContent = bookPrice + '$';
+
+            newItem.appendChild(newImg);
+            newItem.appendChild(newTitle);
+            newItem.appendChild(newPrice);
+
+            checkoutList.appendChild(newItem);
+
+            var totalPriceElement = document.getElementById('price');
+            var total = parseFloat(totalPriceElement.textContent.replace('Total Price: ', '').replace('$', ''));
+            total += parseFloat(bookPrice);
+            totalPriceElement.textContent = 'Total Price: ' + total.toFixed(2) + '$';
+            hideOverlay();
+        }
+
+        function changeimg() {
+            var pic = document.getElementById("adpic")
+            if (pic.src.endsWith("ad1.png")) {
+                pic.src="ad2.png";
+            }
+            else {
+                pic.src="ad1.png";
+            }
+        }
+
+        function viewCart(){
+            var checkoutDiv = document.querySelector('.checkout');
+            checkoutDiv.style.display = 'block';
+            checkoutDiv.style.background = 'linear-gradient(to bottom, #BED7DC, #496989)';            checkoutDiv.style.position = 'fixed';
+            checkoutDiv.style.top = '0';
+            checkoutDiv.style.right = '0';
+            checkoutDiv.style.width = '300px';
+            checkoutDiv.style.height = '100%';
+            checkoutDiv.style.zIndex = '999';
+            checkoutDiv.style.padding = '20px';
+            checkoutDiv.style.overflowY= 'auto';
+        }
+
+        function closeCart(){
+            var checkoutDiv = document.querySelector('.checkout');
+            checkoutDiv.style.display = 'none';
+
+        }
+
+    </script>
+
+</body>
+
+</html>

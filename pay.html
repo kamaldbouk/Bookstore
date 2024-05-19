@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Home</title>
+        
+        <style>
+
+            /* body {
+                background-image: url(paymentbg.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .box {
+                background-color: white;
+                width: 600px;
+                height: 600px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;
+                box-shadow: 2px 2px 60px rgb(49, 10, 164) ;
+            }
+
+            .method {
+                color: #496989;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .method label {
+                color: #496989;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .method input {
+                margin-bottom: 10px;
+            }
+
+            .box #pay {
+                position: relative;
+                padding: 10px;
+                border: 0;
+                border-radius: 10px;
+                background-color: #496989;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+                width: 200px;
+                color: white;
+            }
+
+
+            .box #pay:active{
+                top: 4px;
+                left: 3px;
+                box-shadow: none;
+            } */
+
+            body {
+                background-image: url(paymentbg.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .group {
+                margin-bottom: 20px;
+            }
+
+            .group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .group input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+           
+
+            /* .group2 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .group2 label {
+                margin-bottom: 5px;
+            }
+
+            .group2 input {
+                width: 50%;
+            } */
+
+            .box {
+                background-color: white;
+                width: 400px;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 2px 2px 60px rgb(49, 10, 164);
+                text-align: center;
+            }
+
+            .box #pay {
+                position: relative;
+                padding: 10px;
+                border: 0;
+                border-radius: 10px;
+                background-color: #496989;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+                width: 100px;
+                color: white;
+                margin-top: 20px;
+            }
+
+            .box #pay:active {
+                top: 4px;
+                left: 3px;
+                box-shadow: none;
+            }
+
+            .box img{
+                width: 300px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="box">
+
+            <h1>Invoice</h1>
+
+            <img src="payways.png">
+
+            <div class="group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+            </div>
+
+            <div class="group">
+                <label for="name">Name on Card</label>
+                <input type="text" id="name" placeholder="John Doe">
+            </div>
+
+            <div class="group2">
+                <label for="expiry">Expiry Date</label> 
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <label for="cvv">Security Code</label> <br>
+                <input type="text" id="expiry" placeholder="MM/YY">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" id="cvv" placeholder="CVV">
+            </div>
+            
+            <button type="submit" id="pay" onclick="pay()">Pay</button>
+        </div>
+        
+
+        <script>
+
+            function pay() {
+                var card = document.getElementById('cardNumber').value;
+                var name = document.getElementById('name').value;
+                var expiry = document.getElementById('expiry').value;
+                var cvv = document.getElementById('cvv').value;
+
+                if (!card || !name || !expiry || !cvv) {
+                    alert('All fields are required.');
+                }
+                else{
+                    if (!/^\d+$/.test(card) || card.length!=16){
+                        alert('Enter a valid Card Number.')
+                    }
+                    else {
+                        if (!/^\d+$/.test(cvv) || cvv.length!==3 ){
+                            alert('Enter a valid Security Code.')
+                        }
+                        else {
+                            if (parseInt(expiry%100) <24) {
+                                alert('Your card is expired. Contact your local bank provider.')
+                            }
+                            else {
+                                alert('Payment successful.')
+                                window.location.href = 'home.html';
+                            }
+                        }
+                        
+                    }
+                }
+               
+            }
+
+            
+
+        </script>
+
+    </body>
+
+</html>
